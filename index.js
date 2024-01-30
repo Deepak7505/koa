@@ -13,7 +13,7 @@ passport.use(
       clientSecret: API_SECRET_KEY,
       callbackURL: 'http://localhost:7000/auth/shopify/callback',
       // shop: 'e33638.myshopify.com',
-
+      
       scope: ['read_products', 'write_products']
     },
     (accessToken, refreshToken, profile, done) => {
@@ -32,10 +32,7 @@ app.use(passport.session());
 
 app.get('/auth/shopify', (req, res, next) => { 
   console.log(req.url);
-   passport.authenticate('shopify', {
-    scope: [ 'read_products' ],
-
-  })
+  passport.authenticate('shopify')(req, res, next);
 });
 
 
