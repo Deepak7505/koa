@@ -14,11 +14,11 @@ passport.use(
       callbackURL: 'http://localhost:7000/auth/shopify/callback',
       // shop: 'e33638.myshopify.com',
       
-      scope: ['read_products', 'write_products']
+      scope: ['read_products']
     },
     (accessToken, refreshToken, profile, done) => {
       console.log(accessToken,refreshToken,profile);
-      return done(null, profile);
+      return done(null, profile); 
     }
   )  
 );
@@ -59,8 +59,6 @@ app.get('/', (req, res) => {
     }
   });
   
-
-
 
 app.listen(7000, () => {
   console.log('Server listening on port 7000');
