@@ -19,7 +19,7 @@ const authHandler = (req, res, next) => {
 
 
   const finalHandler = (req, res) => {
-    console.log("User authenticated:", req.user);
+    console.log("User authenticated:", req.user); 
   
     if (req.query.error) {
       console.error('Authentication error:', req.query.error);
@@ -36,11 +36,11 @@ const homeRootHandler = (req, res) => {
       const accessToken = req.user.accessToken;
       // Perform actions with the access token
       console.log(accessToken);
-      res.send(`Authenticated! Access Token: ${accessToken}`);
+      res.send(`Authenticated! successfully`);
     } else {
       res.send('Not authenticated!');
     }
-  }
+  } 
 
 
 module.exports = {
